@@ -1,4 +1,3 @@
-require 'app.rb'
 
 feature 'enter_names' do
   scenario 'visiting web page' do

@@ -1,6 +1,5 @@
 require 'sinatra/base'
-require 'shotgun'
-require 'sinatra'
+
 
 class Battle < Sinatra::Base
   get '/' do
@@ -8,9 +7,8 @@ class Battle < Sinatra::Base
   end
 
   post '/names' do
-    @name = params[:names]
+    @names = params[:names]
   end
-
 
   run! if app_file == $0
 end

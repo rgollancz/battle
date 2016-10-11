@@ -1,12 +1,23 @@
 require 'sinatra'
-#require 'shotgun'
+require 'shotgun'
 
-get '/cat' do
-
-  '<div style="border: 2px dashed red">
-    <img src="http://bit.ly/1eze8aE">
-  </div>'
+get '/random-dog' do
+  @doggy_names = ["PAWS", "KAISER", "LUDWIG", "ARCHIBOLD"].sample
+  erb :index
 end
 
+post '/named-dog' do
+  p params
+  @doggy_names = params[:name]
+  erb :index
+end
 
-#set :session_secret, 'super secret'
+get "/form" do
+  erb :dog_form
+end
+
+get '/secret' do
+  'Top Secret!'
+end
+
+set :session_secret, 'super secret'

@@ -1,4 +1,5 @@
 require 'spec_helper'
+require './lib/player'
 
 feature 'enter_names' do
   scenario 'visiting web page' do
@@ -12,7 +13,7 @@ end
 feature 'see the player points' do
   scenario 'when names page is loaded' do
     sign_in_and_play
-    expect(page).to have_text("Fluffkins has 10 points!")
+    expect(page).to have_text("Fluffkins has 50 points!")
   end
 end
 

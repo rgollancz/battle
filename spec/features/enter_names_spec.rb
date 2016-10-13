@@ -23,3 +23,11 @@ feature 'attack player' do
     expect(page).to have_text("Truffles has attacked Fluffkins!")
   end
 end
+
+feature 'reduce hit points when attacked' do
+  scenario 'reduce player 2 HP by 10' do
+    sign_in_and_play
+    click_button "ATTACK!"
+    expect(page).to have_text("Fluffkins' HP has reduced by 10!")
+  end
+end

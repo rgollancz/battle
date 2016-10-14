@@ -5,11 +5,7 @@ require './lib/game'
 
 class Battle < Sinatra::Base
 
-# enable :sessions
-
   get '/' do
-    # $name << session[:name1].inspect
-    # $name << session[:name2].inspect
     erb :index
   end
 
@@ -21,17 +17,15 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    @player_1_name = $game.player_1.name
-    @player_2_name = $game.player_2.name
-    @player_1_hit_points = $game.player_1.hit_points
-    @player_2_hit_points = $game.player_2.hit_points
+    @player_1 = $game.player_1
+    @player_2 = $game.player_2
     erb :play
   end
 
   get '/attack' do
-    @player_1_name = $game.player_1.name
-    @player_2_name = $game.player_2.name
-    $game.attack(@player_2)
+    @player_1 = $game.player_1
+    @player_2 = $game.player_2
+    $game.attack($game.player_2)
     erb :attack
   end
 

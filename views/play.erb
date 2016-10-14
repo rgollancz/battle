@@ -1,12 +1,8 @@
-<div style="border: 2px dashed red">
-  <img src="http://tinyurl.com/3sqwntc">
-
+<html>
   <h1>Battle</h1>
-
     <% if @game.player_1_hp == 0 %>
       <h2> <%= @game.player_1_name %> loses the battle! </h2>
     <% end %>
-
     <% if @game.player_2_hp == 0 %>
       <h2> <%= @game.player_2_name %> loses the battle! </h2>
     <% end %>
@@ -15,5 +11,6 @@
     <h3><%=@game.player_2_name%> has <%=@game.player_2_hp%> points!</h3>
 
   <form action="/attack">
-    <input type="submit" value="ATTACK!">
+    <input type="submit" value="Attack!">
   </form>
+</html>

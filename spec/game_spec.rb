@@ -1,14 +1,14 @@
 require 'game.rb'
 
 describe Game do
-  let(:player_1) { Player.new("Anna") }
-  let(:player_2) { Player.new("Sarah") }
+  let(:player_1) { Player.new("Player_1") }
+  let(:player_2) { Player.new("Player_2") }
   subject(:game) {described_class.new(player_1,player_2)}
 
   describe 'game accepts two player instances' do
     it 'returns players\' names' do
-      expect(game.player_1_name).to eq("Anna")
-      expect(game.player_2_name).to eq("Sarah")
+      expect(game.player_1_name).to eq("Player_1")
+      expect(game.player_2_name).to eq("Player_2")
     end
 
     it 'returns players\' hit points' do
@@ -17,7 +17,7 @@ describe Game do
     end
 
     it 'returns current player\'s name' do
-      expect(game.current_player_name).to eq player_1.name
+      expect(game.current_player_name).to eq player_2.name
     end
 
     it 'returns current player\'s hit points' do
@@ -38,7 +38,7 @@ describe Game do
 
     it 'responds to receive_damage' do
       expect(player_2).to receive(:receive_damage)
-      game.attack(player_2)
+      game.attack
     end
   end
 end

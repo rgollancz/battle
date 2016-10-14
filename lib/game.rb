@@ -42,16 +42,12 @@ class Game
     @player_2.hit_points
   end
 
-  def attack(player)
-    player.receive_damage
+  def attack
+    @current_player.receive_damage
   end
 
   def turn_switcher
-    if @current_player == @player_1
-      @current_player = @player_2
-    else
-      @current_player = @player_1
-    end
+    @current_player == @player_1 ? @current_player = @player_2 : @current_player = @player_1
   end
 
 end

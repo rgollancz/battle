@@ -1,10 +1,13 @@
-<h1><%=@game.player_1_name%> has attacked <%=@game.player_2_name%>!</h1>
+<html>
+  <h1>Battle</h1>
 
-<h2><%=@game.current_player_name%>'s HP has reduced by 10!</h2>
+  <h2><%=@game.player_1_name%> has attacked <%=@game.player_2_name%>!</h2>
+  <p><%=@game.current_player_name%> loses 10 HP!</p>
 
-<h3><%=@game.player_1_name%> has <%=@game.player_1_hp%> points!</h3>
-<h3><%=@game.player_2_name%> has <%=@game.player_2_hp%> points!</h3>
+  <h2>Hit Points</h2>
+  <p><%=@game.player_1_name%> has <%=@game.player_1_hp%> points!</p>
+  <p><%=@game.player_2_name%> has <%=@game.player_2_hp%> points!</p>
 
 <form action="/play">
-  <input type="submit" value="go back to battle!">
+  <input type="submit" value="Back to battle!">
 </form>

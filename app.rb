@@ -23,7 +23,7 @@ class Battle < Sinatra::Base
 
   get '/attack' do
     @game = Game.instance
-    @game.attack(@game.current_player)
+    @game.attack
     @game.turn_switcher
     erb :attack
   end

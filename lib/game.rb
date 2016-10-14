@@ -22,6 +22,10 @@ class Game
     @player_2.name
   end
 
+  def current_player_hp
+    @current_player.hit_points
+  end
+
   def player_1_hp
     @player_1.hit_points
   end

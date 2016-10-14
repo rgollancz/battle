@@ -4,8 +4,6 @@ require './lib/player'
 feature 'enter_names' do
   scenario 'visiting web page' do
     sign_in_and_play
-    expect(page).to have_text("Truffles are yuuuuuu ready!?")
-    expect(page).to have_text("Fluffkins are yuuuuuu ready!?")
     expect(page).to have_text("Let Battle Commence!")
   end
 end
@@ -30,5 +28,15 @@ feature 'reduce hit points when attacked' do
     sign_in_and_play
     click_button "ATTACK!"
     expect(page).to have_text("Fluffkins's HP has reduced by 10!")
+  end
+end
+
+feature 'turn switcher' do
+  scenario 'switches player after attack' do
+    sign_in_and_play
+    click_button "ATTACK!"
+    click_button "go back to battle!"
+    click_button "ATTACK!"
+    expect(page).to have_text("Truffles's HP has reduced by 10!")
   end
 end

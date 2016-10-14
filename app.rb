@@ -18,20 +18,15 @@ class Battle < Sinatra::Base
 
   get '/play' do
     @game = Game.instance
+    @game.turn_switcher
     erb :play
   end
 
   get '/attack' do
     @game = Game.instance
     @game.attack
-    @game.turn_switcher
     erb :attack
   end
 
   run! if app_file == $0
-
 end
-
-
-
-# start the server if ruby file executed directly

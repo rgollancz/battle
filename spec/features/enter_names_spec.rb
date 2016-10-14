@@ -26,7 +26,7 @@ end
 feature 'reduce hit points when attacked' do
   scenario 'reduce player 2 HP by 10' do
     sign_in_and_attack
-    expect(page).to have_text("Truffles loses 10 HP!")
+    expect(page).to have_text("Fluffkins loses 10 HP!")
   end
 end
 
@@ -35,7 +35,7 @@ feature 'turn switcher' do
     sign_in_and_attack
     click_button "Back to battle!"
     click_button "Attack!"
-    expect(page).to have_text("Fluffkins loses 10 HP!")
+    expect(page).to have_text("Truffles loses 10 HP!")
   end
 end
 

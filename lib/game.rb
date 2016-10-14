@@ -2,7 +2,7 @@ require './lib/player'
 
 class Game
 
-  attr_reader :player_1, :player_2, :current_player, :game
+  attr_reader :player_1, :player_2, :current_player, :victim, :game
 
   def self.create(player_1, player_2)
     @game = Game.new(player_1, player_2)
@@ -15,11 +15,15 @@ class Game
   def initialize(player_1, player_2)
     @player_1 = player_1
     @player_2 = player_2
-    @current_player = @player_2
+    @victim = @player_1
+  end
+
+  def current_victim_name
+    @victim.name
   end
 
   def current_player_name
-    @current_player.name
+    @victim == @player_1 ? @player_2.name : @player_1.name
   end
 
   def player_1_name
@@ -30,8 +34,8 @@ class Game
     @player_2.name
   end
 
-  def current_player_hp
-    @current_player.hit_points
+  def current_victim_hp
+    @victim.hit_points
   end
 
   def player_1_hp
@@ -43,11 +47,11 @@ class Game
   end
 
   def attack
-    @current_player.receive_damage
+    @victim.receive_damage
   end
 
   def turn_switcher
-    @current_player == @player_1 ? @current_player = @player_2 : @current_player = @player_1
+    @victim == @player_1 ? @victim = @player_2 : @victim = @player_1
   end
 
 end

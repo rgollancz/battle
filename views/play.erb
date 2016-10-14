@@ -3,16 +3,16 @@
 
   <h1>Battle</h1>
 
-    <% if $game.player_1_hp == 0 %>
-      <h2> <%= $game.player_1_name %> loses the battle! </h2>
+    <% if @game.player_1_hp == 0 %>
+      <h2> <%= @game.player_1_name %> loses the battle! </h2>
     <% end %>
 
-    <% if $game.player_2_hp == 0 %>
-      <h2> <%= $game.player_2_name %> loses the battle! </h2>
+    <% if @game.player_2_hp == 0 %>
+      <h2> <%= @game.player_2_name %> loses the battle! </h2>
     <% end %>
 
-    <h3><%=$game.player_1_name%> has <%=$game.player_1_hp%> points!</h3>
-    <h3><%=$game.player_2_name%> has <%=$game.player_2_hp%> points!</h3>
+    <h3><%=@game.player_1_name%> has <%=@game.player_1_hp%> points!</h3>
+    <h3><%=@game.player_2_name%> has <%=@game.player_2_hp%> points!</h3>
 
   <form action="/attack">
     <input type="submit" value="ATTACK!">
